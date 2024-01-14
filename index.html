@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="position-relative">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Reviews</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body >
+  
+  <main id="main" class="d-none" >
+
+    <header >
+      <div class="container h-100 ">
+        <nav class="rounded-4 navbar navbar-expand-lg  mx-5 z-1  ">
+          <div class="container">
+            <a class="navbar-brand row align-items-center " href="#"> <img src="./imges/logo.png" class="col-3" alt=""> <span class="col-9 p-0"> GAME REVIEWS</span></a>
+            <button
+              class="navbar-toggler d-lg-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsibleNavId"
+              aria-controls="collapsibleNavId"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="collapsibleNavId">
+              <ul class="navbar-nav mt-2 mt-lg-0 ms-auto text-uppercase">
+                <li id="mmorbg" class="nav-item">
+                  <a class="nav-link active" href="#" aria-current="page">
+                    mmorpg
+                  </a>
+                </li>
+  
+                <li class="nav-item">
+                  <a class="nav-link" href="#">shooter</a>
+                </li>
+  
+                <li class="nav-item">
+                  <a class="nav-link" href="#">sailing</a>
+                </li>
+  
+                <li class="nav-item">
+                  <a class="nav-link" href="#">PERMADEATH</a>
+                </li>
+  
+                <li class="nav-item">
+                  <a class="nav-link" href="#">superhero</a>
+                </li>
+  
+                <li class="nav-item">
+                  <a class="nav-link" href="#">pixel</a>
+                </li> 
+                
+              </ul>
+              
+            </div>
+          </div>
+        </nav>
+              
+      </div>
+    </header>
+  
+    <section class="vh-100 mt-5 pt-5">
+      <div class="container">
+        <div id="games" class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 row-cols-xxl-4">
+  
+          
+          
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <div id="details" class="gameDetails bg-dark position-absolute top-0 bottom-0 end-0 start-0 text-white d-none">
+   
+  </div>
+
+  <div id="loader" class=" z-3 position-absolute vh-100 top-0 bottom-0 start-0 end-0 bg-dark d-flex justify-content-center align-items-center  " >
+    
+    
+      <div class="spinner-border spin text-black " role="status">
+      </div>
+      <div id="spinner" class="spinner-border text-white position-absolute " role="status">
+      </div>
+  </div>
+
+  <script src="./js/index.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

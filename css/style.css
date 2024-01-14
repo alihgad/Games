@@ -1,0 +1,109 @@
+:root {
+  --scrollbarBG: #474849;
+  --thumbBG: #32383e;
+}
+
+body::-webkit-scrollbar {
+  width: 15px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+}
+
+body {
+  background-color: #272b30 !important;
+  font-family: "Comic Neue", cursive !important;
+}
+
+header {
+  height: 240px;
+  background-image: url(../imges/wraper.png);
+  background-size: cover;
+  background-position: center center;
+}
+
+nav {
+  top: 85%;
+  background-color: #3a497b;
+  box-shadow: 1px 1px 10px black;
+}
+
+nav a {
+  color: white !important;
+}
+
+.card {
+  filter: grayscale(0.7);
+  -webkit-filter: grayscale(0.7);
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  cursor: pointer;
+}
+
+.card:hover {
+  filter: grayscale(0);
+  -webkit-filter: grayscale(0);
+  scale: 1.05;
+}
+
+.card .card-body .card-text p:first-child {
+  width: 90%;
+}
+
+.nav-link {
+  font-weight: bold !important;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #09c !important;
+}
+
+#x {
+  cursor: pointer;
+}
+
+
+#spinner{
+  animation: rotate  0.8s  infinite linear !important ;
+  -webkit-animation: rotate  0.8s  infinite linear !important ;
+  width: 60px;
+  height: 60px;
+  color: gold !important;
+}
+
+.spinner-border {
+  border-bottom: none !important;
+  border-left: none !important;
+}
+.spin{
+  width: 50px !important;
+  height: 50px !important;
+}
+
+@keyframes rotate {
+  to {
+    transform:rotate(-360deg);
+    -webkit-transform:rotate(-360deg);
+    -moz-transform:rotate(-360deg);
+    -ms-transform:rotate(-360deg);
+    -o-transform:rotate(-360deg);
+}
+}
+
+#loader{
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
