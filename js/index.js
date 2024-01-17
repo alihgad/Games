@@ -29,8 +29,11 @@ let navItem = document.querySelectorAll(".nav-item"),
 	const response = await fetch(url, options);
 	const result = await response.json();
     displayData(result)
+
     addDetails(result)
     }
+
+  
 
     function displayData(result){
         let cartona = ""
@@ -63,65 +66,67 @@ let navItem = document.querySelectorAll(".nav-item"),
         }
         document.getElementById("games").innerHTML = cartona
     }
+
+
     
-    function addDetails(result){
+    async function addDetails(){
 
-
-
-        let games = document.querySelectorAll(".card"),
-            theGame = ""
+        let games = document.querySelectorAll(".card")
             
 
     for(let i = 0;i<games.length;i++) {
-          games[i].addEventListener("click", function(e){
+          games[i].addEventListener("click", async function(e){
             document.querySelector("#loader").classList.replace("d-none" , "d-flex")
-                  setTimeout(function(){
-                  document.querySelector("#loader").classList.replace("d-flex" , "d-none")
-                },1000)
-            for(let i =0;i<result.length;i++) {
-              if(result[i].id == this.getAttribute("data-code") ){
-                theGame = result[i];
-              }
-            }
+            setTimeout(function(){
+              document.querySelector("#loader").classList.replace("d-flex" , "d-none")
+            },1000)
+            
+
+            const url = `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${this.getAttribute("data-code")}`;
+            const options = {
+          method: 'GET',
+          headers: {
+            'X-RapidAPI-Key': 'c78cc4f613msh861e33d7cd8a0dap1c8c06jsn31fdd9c702d0',
+            'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+          }
+        }
+          const response = await fetch(url, options);
+            let details = await response.json()
+            console.log(details);
+        
+            document.getElementById("details").innerHTML = `<div class="container pt-4 fw-bolder fs-5">
+            <heading class="d-flex justify-content-between align-content-center">
+              <h3 class=" text-capitalize">game details</h3>
+              <div id="x" class="close">
+                <i  class="fa-solid fa-close fa-2xl fs-3"></i>
+              </div>
+            </heading>
+            <div class="body">
+              <div id="game-details" class="row ">
+                <div class="col-lg-4 my-4">
+                  <img src="${details.thumbnail}" class="w-100" alt="">
+                </div>
+                <div class="col-lg-8 text-capitalize ">
+                  <h2>Title: ${details.title} </h2>
+                  <p>category: <span class="badge text-bg-primary">${details.genre}</span></p>
+                  <p>Platform: <span class="badge text-bg-primary">${details.platform}</span></p>
+                  <p>Status: <span class="badge text-bg-primary">Live</span></p>
+                  <p>${details.description}</p>
+                  <a href="${details.game_url}" target="_blank" class="btn btn-outline-info">Show game</a>
+                </div>
+        
+              </div>
+            </div>
+            </div>`;
+        
+            document.querySelector("#x").addEventListener("click",function(){
+              document.getElementById("details").classList.add("d-none")
+              document.getElementById("main").classList.remove("d-none")
+              })
           document.getElementById("details").classList.remove("d-none")
           document.getElementById("main").classList.add("d-none")
-          document.getElementById("details").innerHTML = `<div class="container pt-4 fw-bolder fs-5">
-          <heading class="d-flex justify-content-between align-content-center">
-            <h3 class=" text-capitalize">game details</h3>
-            <div id="x" class="close">
-              <i  class="fa-solid fa-close fa-2xl fs-3"></i>
-            </div>
-          </heading>
-          <div class="body">
-            <div id="game-details" class="row ">
-              <div class="col-lg-4 my-4">
-                <img src="${theGame.thumbnail}" class="w-100" alt="">
-              </div>
-              <div class="col-lg-8 text-capitalize ">
-                <h2>Title: ${theGame.title} </h2>
-                <p>category: <span class="badge text-bg-primary">${theGame.genre}</span></p>
-                <p>Platform: <span class="badge text-bg-primary">${theGame.platform}</span></p>
-                <p>Status: <span class="badge text-bg-primary">Live</span></p>
-                <p>${theGame.short_description}</p>
-                <a href="${theGame.game_url}" target="_blank" class="btn btn-outline-info">Show game</a>
-              </div>
-    
-            </div>
-          </div>
-          </div>`;
-
-          document.querySelector("#x").addEventListener("click",function(){
-            document.getElementById("details").classList.add("d-none")
-            document.getElementById("main").classList.remove("d-none")
-            })
-
           })
-
-          
-
-
-        }
-        
+        }        
       }
       
       
